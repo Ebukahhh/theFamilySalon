@@ -103,12 +103,14 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 md:py-32 bg-secondary/30">
+      <section id="services" className="py-24 md:py-32 bg-muted/50">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-foreground">Our Services</h2>
-            <p className="text-lg text-muted-foreground">
-              We specialize in healthy, natural hair care for the whole family. From protective styles to grooming, we've got you covered.
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <Badge variant="outline" className="mb-4 border-primary/30 text-primary uppercase tracking-widest px-4 py-1">Our Expertise</Badge>
+            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 text-foreground leading-tight">Professional Services</h2>
+            <div className="w-24 h-1 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              We specialize in healthy, natural hair care for the whole family. From protective styles to grooming, we've got you covered with premium techniques and products.
             </p>
           </div>
 
@@ -117,7 +119,7 @@ export default function Home() {
             initial="initial"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             <motion.div variants={fadeIn}>
               <ServiceCard 
