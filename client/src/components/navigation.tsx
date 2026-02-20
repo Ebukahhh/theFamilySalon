@@ -7,9 +7,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const links = [
   { href: "#services", label: "Services" },
+  { href: "#pricing", label: "Pricing" },
   { href: "#about", label: "About" },
   { href: "#gallery", label: "Gallery" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#reviews", label: "Reviews" },
   { href: "#contact", label: "Book Now" },
 ];
 
@@ -67,15 +68,15 @@ export function Navigation() {
               onClick={(e) => scrollToSection(e, link.href)}
               className={cn(
                 "text-sm font-medium transition-colors uppercase tracking-wider",
-                isScrolled 
-                  ? "text-foreground/80 hover:text-primary" 
+                isScrolled
+                  ? "text-foreground/80 hover:text-primary"
                   : "text-white/90 hover:text-white"
               )}
             >
               {link.label}
             </a>
           ))}
-          <Button 
+          <Button
             className="rounded-full px-6 bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20"
             asChild
           >
