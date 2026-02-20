@@ -3,8 +3,10 @@ import fs from "fs";
 import path from "path";
 
 export function serveStatic(app: Express) {
-  // __dirname in the CJS bundle is dist/, so public is dist/public/
-  const distPath = path.resolve(__dirname, "public");
+  // Use process.cwd() instead of __dirname — esbuild inlines __dirname
+  // at build time which makes it point to the developer's local machine path.
+  // process.cwd() always resolves to where the server is actually started from.
+  const distPath = path.resolve(process.cwd(), "dist", "public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
