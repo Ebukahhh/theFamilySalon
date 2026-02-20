@@ -124,6 +124,7 @@ export default function Home() {
                 title="Natural Hair Care" 
                 description="Expert care for your natural crown. Silk presses, treatments, and healthy hair maintenance routines tailored to your texture."
                 icon={Sparkles}
+                image="https://images.unsplash.com/photo-1620331311520-246422ff83f9?q=80&w=2574&auto=format&fit=crop"
               />
             </motion.div>
             <motion.div variants={fadeIn}>
@@ -131,6 +132,7 @@ export default function Home() {
                 title="Protective Styling" 
                 description="Beautiful braids, twists, locs, and cornrows designed to protect your hair while looking absolutely stunning."
                 icon={Palette}
+                image="https://images.unsplash.com/photo-1647383363364-772960616175?q=80&w=2574&auto=format&fit=crop"
               />
             </motion.div>
             <motion.div variants={fadeIn}>
@@ -138,6 +140,7 @@ export default function Home() {
                 title="Women's Styling" 
                 description="From cuts to color, relaxers to wigs. Our stylists are trained in the latest techniques to bring your vision to life."
                 icon={Scissors}
+                image="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=2576&auto=format&fit=crop"
               />
             </motion.div>
             <motion.div variants={fadeIn}>
@@ -145,6 +148,7 @@ export default function Home() {
                 title="Men's Grooming" 
                 description="Sharp cuts, fades, and beard trims. A relaxing experience for the modern gentleman."
                 icon={User}
+                image="https://images.unsplash.com/photo-1621605815841-2cd6060f195c?q=80&w=2570&auto=format&fit=crop"
               />
             </motion.div>
             <motion.div variants={fadeIn}>
@@ -152,6 +156,7 @@ export default function Home() {
                 title="Mani & Pedi" 
                 description="Pamper your hands and feet with our luxurious nail services. Gel polish, acrylics, and spa treatments available."
                 icon={Heart}
+                image="https://images.unsplash.com/photo-1604654894610-df490668f602?q=80&w=2574&auto=format&fit=crop"
               />
             </motion.div>
             <motion.div variants={fadeIn}>
@@ -159,6 +164,7 @@ export default function Home() {
                 title="Massage Therapy" 
                 description="Unwind with a relaxing massage. The perfect way to de-stress while your hair treatment processes."
                 icon={Star}
+                image="https://images.unsplash.com/photo-1544161515-4af6b1d462c2?q=80&w=2670&auto=format&fit=crop"
               />
             </motion.div>
           </motion.div>

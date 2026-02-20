@@ -41,16 +41,21 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-4"
-          : "bg-transparent py-6"
+          ? "bg-white/95 backdrop-blur-md shadow-md py-4"
+          : "bg-black/20 backdrop-blur-[2px] py-6"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-primary/10 p-2 rounded-full group-hover:bg-primary/20 transition-colors">
-            <Scissors className="w-6 h-6 text-primary rotate-[-45deg]" />
+          <div className="bg-primary/20 p-2 rounded-full group-hover:bg-primary/30 transition-colors">
+            <Scissors className="w-6 h-6 text-white rotate-[-45deg]" />
           </div>
-          <span className="text-xl font-bold font-display tracking-tight">The Family Salon</span>
+          <span className={cn(
+            "text-xl font-bold font-display tracking-tight transition-colors",
+            isScrolled ? "text-foreground" : "text-white"
+          )}>
+            The Family Salon
+          </span>
         </Link>
 
         {/* Desktop Menu */}
@@ -60,7 +65,12 @@ export function Navigation() {
               key={link.href}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors uppercase tracking-wider"
+              className={cn(
+                "text-sm font-medium transition-colors uppercase tracking-wider",
+                isScrolled 
+                  ? "text-foreground/80 hover:text-primary" 
+                  : "text-white/90 hover:text-white"
+              )}
             >
               {link.label}
             </a>
