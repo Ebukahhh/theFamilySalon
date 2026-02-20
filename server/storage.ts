@@ -1,5 +1,5 @@
 import { contacts, type InsertContact, type Contact } from "@shared/schema";
-import { db } from "./db";
+import { initDb, db } from "./db";
 
 export interface IStorage {
   createContact(contact: InsertContact): Promise<Contact>;
@@ -40,4 +40,21 @@ class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage: IStorage = db ? new DatabaseStorage() : new MemoryStorage();
+let _storage: IStorage | null = null;
+
+export async function initStorage(): Promise<void> {
+  await initDb();
+  _storage = db ? new DatabaseStorage() : new MemoryStorage();
+}
+
+export function getStorage(): IStorage {
+  if (!_storage) throw new Error("Storage not initialized. Call initStorage() first.");
+  return _storage;
+}
+
+// Backward-compatible export (resolved after initStorage is called)
+export const storage = new Proxy({} as IStorage, {
+  get(_target, prop) {
+    return getStorage()[prop as keyof IStorage];
+  }
+});

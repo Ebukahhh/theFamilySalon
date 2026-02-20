@@ -1,15 +1,19 @@
 import * as schema from "@shared/schema";
+import type { NodePgDatabase } from "drizzle-orm/node-postgres";
+import type { Pool } from "pg";
 
-// Only import pg/drizzle if DATABASE_URL is provided
-export let db: ReturnType<typeof import("drizzle-orm/node-postgres").drizzle> | null = null;
-export let pool: import("pg").Pool | null = null;
+export let db: NodePgDatabase<typeof schema> | null = null;
+export let pool: Pool | null = null;
 
-if (process.env.DATABASE_URL) {
+export async function initDb(): Promise<void> {
+  if (!process.env.DATABASE_URL) {
+    console.warn("[db] DATABASE_URL not set — using in-memory storage for contacts.");
+    return;
+  }
+
   const { drizzle } = await import("drizzle-orm/node-postgres");
   const pg = await import("pg");
-  const { Pool } = pg.default;
-  pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  const PgPool = pg.default?.Pool ?? (pg as any).Pool;
+  pool = new PgPool({ connectionString: process.env.DATABASE_URL });
   db = drizzle(pool, { schema });
-} else {
-  console.warn("[db] DATABASE_URL not set — using in-memory storage for contacts.");
 }
